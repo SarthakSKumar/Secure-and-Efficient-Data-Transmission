@@ -3,7 +3,7 @@
 
 int main()
 {
-    printf("CAESAR CIPHER DECODING\n");
+    printf("CAESAR CIPHER DECODING ALGORITHM\n");
     printf("Enter the string and the shift.\n");
     int shift2;
     char str2[50];
