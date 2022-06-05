@@ -1,8 +1,8 @@
 #include <stdio.h>
+#include <string.h>
 
 int main()
 {
-    // Write C code here
     printf("CAESAR CIPHER DECODING\n");
     printf("Enter the string and the shift.\n");
     int shift2;
@@ -16,11 +16,11 @@ int main()
         {
             int a = str2[i] - 97;
             int b = shift2 - a;
-            de_cc[i] = (char *)(122 - b);
+            de_cc[i] = (char)(122 - b);
         }
         else
         {
-            de_cc[i] = (char *)(str2[i] - shift2);
+            de_cc[i] = (char)(str2[i] - shift2);
         }
     }
     printf("The decoded string is:\n%s\n", de_cc);
