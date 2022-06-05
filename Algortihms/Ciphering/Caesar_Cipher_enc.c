@@ -17,11 +17,11 @@ int main()
         {
             int a = 122 - str[i];
             int b = shift - a;
-            en_cc[i] = (char)(97 + b);
+            en_cc[i] = (char *)(97 + b);
         }
         else
         {
-            en_cc[i] = (char)(str[i] + shift);
+            en_cc[i] = (char *)(str[i] + shift);
         }
     }
     printf("The encoded string is:\n%s\n", en_cc);
