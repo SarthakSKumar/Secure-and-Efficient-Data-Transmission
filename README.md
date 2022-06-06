@@ -1,7 +1,7 @@
 # Secure and Efficient Data Transmission
 
 ## ✨ Project Description
-<h4>Secure and Efficient Data Transmission using Compression and Ciphering Algorithms<br></h4>
+<h4>Secure and Efficient Data Transmission using Compression and Cipher Algorithms<br></h4>
 
 ## 🤝 Team Members
 <h4>✦ <a href = "https://github.com/SarthakSKumar">Sarthak S Kumar</a><br>
