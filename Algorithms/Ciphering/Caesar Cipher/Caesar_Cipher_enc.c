@@ -1,4 +1,10 @@
-// CAESAR CIPHER ENCODING
+/*
+Project Name: Secure and Efiicient Data Transmission
+File Name: Caesar_Cipher_enc.c
+Last Updated: 05/06/2022
+Last Updated by: Shreya Mandi
+*/
+
 #include <stdio.h>
 #include <string.h>
 
