@@ -1,6 +1,6 @@
 #include "stdio.h"
 #include "stdlib.h"
-char enc_str[50];
+char dec_str[50];
 
 void delay(int millis)
 {
@@ -8,7 +8,7 @@ void delay(int millis)
     while (clock() < start_time + millis)
         ;
 }
-int ceasar_cipher_enc()
+int ceasar_cipher_dec()
 {
     int shift;
     char str[50];
@@ -16,7 +16,7 @@ int ceasar_cipher_enc()
     printf("\n::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
     printf("                                  DECRYPTION USING CAESAR CIPHER                                  \n");
     printf("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n\n");
-    printf("|||||||||||||||||||||||||||||   INSERT THE STRING TO BE ENCRYPTED  |||||||||||||||||||||||||||||||\n\n");
+    printf("|||||||||||||||||||||||||||||   INSERT THE STRING TO BE DECRYPTED  |||||||||||||||||||||||||||||||\n\n");
     scanf("%s", &str);
     delay(200);
 
@@ -34,19 +34,19 @@ INVALID_SHIFT_VALUE:
 
         for (int i = 0; i < strlen(str); i++)
         {
-            if (str[i] + shift > 122)
+            if (str[i] - shift < 97)
             {
-                int a = 122 - str[i];
+                int a = str[i] - 97;
                 int b = shift - a;
-                enc_str[i] = (char)(97 + b);
+                dec_str[i] = (char)(122 - b);
             }
             else
             {
-                enc_str[i] = (char)(str[i] + shift);
+                dec_str[i] = (char)(str[i] - shift);
             }
         }
         delay(1000);
-        printf("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ STRING ENCRYPTED SUCCESSFULLY ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+        printf("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ STRING DECRYPTED SUCCESSFULLY ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
     }
     return 0;
 }
@@ -70,7 +70,7 @@ int cipher_select()
     else if (choice == '2')
     {
         delay(200);
-        ceasar_cipher_enc();
+        ceasar_cipher_dec();
     }
     else if (choice == '0')
     {
