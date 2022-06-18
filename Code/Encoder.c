@@ -63,7 +63,7 @@ INVALID_SHIFT_VALUE:
 
 int cipher_select()
 {
-    int choice = 0;
+    char choice;
     printf("                                    SELECT CIPHERING ALGORITHM                                    \n");
     delay(1000);
     printf("--------------------------------------------------------------------------------------------------\n");

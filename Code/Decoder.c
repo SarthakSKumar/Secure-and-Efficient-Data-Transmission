@@ -27,11 +27,12 @@ int ceasar_cipher_dec()
     printf("                                  DECRYPTION USING CAESAR CIPHER                                  \n");
     printf("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n\n");
     printf("|||||||||||||||||||||||||||||   INSERT THE STRING TO BE DECRYPTED  |||||||||||||||||||||||||||||||\n\n");
-    scanf("%s", &str);
     delay(200);
+    scanf("%s", &str);
 
 INVALID_SHIFT_VALUE:
     printf("                                ENTER THE SHIFT VALUE (0 - 255): ");
+    shift = 0;
     scanf("%d", &shift);
     if (shift <= 0 && shift >= 255)
     {
@@ -63,7 +64,7 @@ INVALID_SHIFT_VALUE:
 
 int cipher_select()
 {
-    int choice = 0;
+    char choice;
     printf("                                    SELECT CIPHERING ALGORITHM                                    \n");
     delay(1000);
     printf("--------------------------------------------------------------------------------------------------\n");
