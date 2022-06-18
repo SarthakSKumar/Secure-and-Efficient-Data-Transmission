@@ -19,28 +19,38 @@ int ceasar_cipher_enc()
     printf("\n::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
     printf("                                  ENCRYPTION USING CAESAR CIPHER                                  \n");
     printf("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n\n");
-    printf("|||||||||||||||||||||||||||||   INSERT THE STRING TO BE ENCRYPTED  ||||||||||||||||||||||||||||||||\n");
+    printf("|||||||||||||||||||||||||||||   INSERT THE STRING TO BE ENCRYPTED  |||||||||||||||||||||||||||||||\n\n");
     scanf("%s", &str);
     delay(200);
-    printf("                               ENTER THE SHIFT VALUE (0 - 255): ");
+
+INVALID_SHIFT_VALUE:
+    printf("                                ENTER THE SHIFT VALUE (0 - 255): ");
     scanf("%d", &shift);
-    delay(200);
-
-    for (int i = 0; i < strlen(str); i++)
+    if (shift <= 0 && shift >= 255)
     {
-        if (str[i] + shift > 122)
-        {
-            int a = 122 - str[i];
-            int b = shift - a;
-            enc_str[i] = (char)(97 + b);
-        }
-        else
-        {
-            enc_str[i] = (char)(str[i] + shift);
-        }
+        printf("\nX-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X  INVALID CHOICE  X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X\n\n");
+        goto INVALID_SHIFT_VALUE;
     }
-    printf("The encoded string is:\n%s\n", en_cc);
+    else
+    {
+        delay(200);
 
+        for (int i = 0; i < strlen(str); i++)
+        {
+            if (str[i] + shift > 122)
+            {
+                int a = 122 - str[i];
+                int b = shift - a;
+                enc_str[i] = (char)(97 + b);
+            }
+            else
+            {
+                enc_str[i] = (char)(str[i] + shift);
+            }
+        }
+        delay(1000);
+        printf("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ STRING ENCRYPTED SUCCESSFULLY ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+    }
     return 0;
 }
 
