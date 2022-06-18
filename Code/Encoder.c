@@ -49,7 +49,7 @@ INVALID_SHIFT_VALUE:
             }
         }
         delay(1000);
-        printf("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ STRING ENCRYPTED SUCCESSFULLY ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+        printf("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ STRING ENCRYPTED SUCCESSFULLY ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
     }
     return 0;
 }
