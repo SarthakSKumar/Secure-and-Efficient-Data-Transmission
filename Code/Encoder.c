@@ -1,3 +1,10 @@
+/*
+Project Name: Secure and Efiicient Data Transmission
+File Name: Encoder.c
+Last Updated: 18/06/2022
+Last Updated by: Sarthak S Kumar
+*/
+
 #include "stdio.h"
 #include "stdlib.h"
 #include "string.h"
