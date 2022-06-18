@@ -60,7 +60,7 @@ int cipher_select()
     printf("                                    SELECT CIPHERING ALGORITHM                                    \n");
     delay(1000);
     printf("--------------------------------------------------------------------------------------------------\n");
-    printf("   [1] PLAYFAIR CIPHER         |         [2] CAESAR CIPHER         |         [0] EXIT             \n");
+    printf("      [1] PLAYFAIR CIPHER      |         [2] CAESAR CIPHER         |         [0] EXIT             \n");
     printf("--------------------------------------------------------------------------------------------------\n");
     printf("                                           YOUR CHOICE: ");
     scanf("%c", &choice);
