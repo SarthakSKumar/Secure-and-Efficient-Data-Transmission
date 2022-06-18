@@ -1,5 +1,8 @@
 #include "stdio.h"
 #include "stdlib.h"
+#include "string.h"
+#include "time.h"
+
 char dec_str[50];
 
 void delay(int millis)
@@ -57,7 +60,7 @@ int cipher_select()
     printf("                                    SELECT CIPHERING ALGORITHM                                    \n");
     delay(1000);
     printf("--------------------------------------------------------------------------------------------------\n");
-    printf("   [1] PLAYFAIR CIPHER         |         [2] CAESAR CIPHER         |         [0] EXIT             \n");
+    printf("      [1] PLAYFAIR CIPHER      |         [2] CAESAR CIPHER         |         [0] EXIT             \n");
     printf("--------------------------------------------------------------------------------------------------\n");
     printf("                                           YOUR CHOICE: ");
     scanf("%c", &choice);
@@ -99,4 +102,5 @@ int main()
     printf("--------------------------------------------------------------------------------------------------\n");
     printf("                          CSE SEM 2 PROJECT - LAST UPDATED ON 02-02-2022                          \n");
     printf("--------------------------------------------------------------------------------------------------\n\n");
+    cipher_select();
 }
