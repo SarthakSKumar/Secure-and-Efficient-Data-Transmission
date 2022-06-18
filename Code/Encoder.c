@@ -3,6 +3,8 @@
 #include "string.h"
 #include "time.h"
 
+char enc_str[50];
+
 void delay(int millis)
 {
     clock_t start_time = clock();
@@ -11,24 +13,30 @@ void delay(int millis)
 }
 int ceasar_cipher_enc()
 {
-    printf("CAESER CIPHER ENCODING\n");
-    printf("Enter the string and the shift.\n");
     int shift;
     char str[50];
-    char en_cc[50];
+
+    printf("\n::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
+    printf("                                  ENCRYPTION USING CAESAR CIPHER                                  \n");
+    printf("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n\n");
+    printf("|||||||||||||||||||||||||||||   INSERT THE STRING TO BE ENCRYPTED  ||||||||||||||||||||||||||||||||\n");
     scanf("%s", &str);
+    delay(200);
+    printf("                               ENTER THE SHIFT VALUE (0 - 255): ");
     scanf("%d", &shift);
+    delay(200);
+
     for (int i = 0; i < strlen(str); i++)
     {
         if (str[i] + shift > 122)
         {
             int a = 122 - str[i];
             int b = shift - a;
-            en_cc[i] = (char)(97 + b);
+            enc_str[i] = (char)(97 + b);
         }
         else
         {
-            en_cc[i] = (char)(str[i] + shift);
+            enc_str[i] = (char)(str[i] + shift);
         }
     }
     printf("The encoded string is:\n%s\n", en_cc);
@@ -49,14 +57,17 @@ int cipher_select()
     delay(200);
     if (choice == '1')
     {
+        delay(200);
         printf("lol");
     }
     else if (choice == '2')
     {
+        delay(200);
         ceasar_cipher_enc();
     }
     else if (choice == '0')
     {
+        delay(200);
         printf("close");
     }
     else
