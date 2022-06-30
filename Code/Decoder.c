@@ -1,5 +1,4 @@
-/*
-Project Name: Secure and Efiicient Data Transmission
+/*Project Name: Secure and Efiicient Data Transmission
 File Name: Decoder.c
 Last Updated: 18/06/2022
 Last Updated by: Sarthak S Kumar
@@ -12,14 +11,12 @@ Last Updated by: Sarthak S Kumar
 
 char dec_str[50];
 
-void delay(int millis)
-{
+void delay(int millis) {
     clock_t start_time = clock();
     while (clock() < start_time + millis)
         ;
 }
-int ceasar_cipher_dec()
-{
+int ceasar_cipher_dec() {
     int shift;
     char str[50];
 
@@ -34,25 +31,18 @@ INVALID_SHIFT_VALUE:
     printf("                                ENTER THE SHIFT VALUE (0 - 255): ");
     shift = 0;
     scanf("%d", &shift);
-    if (shift <= 0 && shift >= 255)
-    {
+    if (shift <= 0 && shift >= 255) {
         printf("\nX-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X  INVALID CHOICE  X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X\n\n");
         goto INVALID_SHIFT_VALUE;
-    }
-    else
-    {
+    } else {
         delay(200);
 
-        for (int i = 0; i < strlen(str); i++)
-        {
-            if (str[i] - shift < 97)
-            {
+        for (int i = 0; i < strlen(str); i++) {
+            if (str[i] - shift < 97) {
                 int a = str[i] - 97;
                 int b = shift - a;
                 dec_str[i] = (char)(122 - b);
-            }
-            else
-            {
+            } else {
                 dec_str[i] = (char)(str[i] - shift);
             }
         }
@@ -62,8 +52,7 @@ INVALID_SHIFT_VALUE:
     return 0;
 }
 
-int cipher_select()
-{
+int cipher_select() {
     char choice;
     printf("                                    SELECT CIPHERING ALGORITHM                                    \n");
     delay(1000);
@@ -73,30 +62,22 @@ int cipher_select()
     printf("                                           YOUR CHOICE: ");
     scanf("%c", &choice);
     delay(200);
-    if (choice == '1')
-    {
+    if (choice == '1') {
         delay(200);
         printf("lol");
-    }
-    else if (choice == '2')
-    {
+    } else if (choice == '2') {
         delay(200);
         ceasar_cipher_dec();
-    }
-    else if (choice == '0')
-    {
+    } else if (choice == '0') {
         delay(200);
         printf("close");
-    }
-    else
-    {
+    } else {
         printf("\nX-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X  INVALID CHOICE  X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X\n\n");
         cipher_select();
     }
 }
 
-int main()
-{
+int main() {
     printf("--------------------------------------------------------------------------------------------------\n");
     printf("        SECURE AND EFFICIENT DATA TRANSMISSION USING CIPHERING AND COMPRESSION ALGORITHMS         \n");
     printf("--------------------------------------------------------------------------------------------------\n\n");
