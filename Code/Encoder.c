@@ -10,7 +10,9 @@ Last Updated by: Sarthak S Kumar
 #include "string.h"
 #include "time.h"
 
-char enc_str[50], file_data[1000];
+#define EXTENSION ".ef"
+
+char enc_str[50], file_data[1000], filename[1];
 
 void delay(int millis) {
     clock_t start_time = clock();
@@ -18,8 +20,13 @@ void delay(int millis) {
         ;
 }
 
+void encrypt(char str[]) {
+    strcat(filename, EXTENSION);
+    FILE *file = fopen(filename, "w");
+    fprintf(file, "%s", enc_str);
+}
+
 void f_handle() {
-    char filename[1];
     delay(500);
     printf("\n||||||||||||||||||||   ENTER THE NAME/LOCATION OF THE FILE TO BE ENCRYPTED    ||||||||||||||||||||\n\n");
     scanf("%s", &filename);
@@ -30,6 +37,7 @@ void f_handle() {
     }
     fgets(file_data, 1000, file);
     printf("%s", file_data);
+    fclose(file);
 }
 int ceasar_cipher_enc(int flag) {
     int shift;
@@ -47,19 +55,27 @@ int ceasar_cipher_enc(int flag) {
         printf("                                  ENCRYPTION USING CAESAR CIPHER                                  \n");
         printf("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n\n");
         printf("|||||||||||||||||||||||||||||   INSERT THE STRING TO BE ENCRYPTED  |||||||||||||||||||||||||||||||\n\n");
-        scanf(" %s", &str);
+        scanf("%s", &str);
         delay(200);
     }
 
 INVALID_SHIFT_VALUE:
     printf("                                ENTER THE SHIFT VALUE (0 - 255): ");
-    scanf("%d", &shift);
+    scanf(" %d", &shift);
     if (shift <= 0 && shift >= 255) {
         printf("\nX-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X  INVALID CHOICE  X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X\n\n");
         goto INVALID_SHIFT_VALUE;
     } else {
-        delay(200);
-
+        int i, len = 0, j;
+        len = sizeof(str) / sizeof(str[0]);
+        for (i = 0; i < len; i++) {
+            if (str[i] == ' ') {
+                for (j = i; j < len; j++) {
+                    str[j] = str[j + 1];
+                }
+                len--;
+            }
+        }
         for (int i = 0; i < strlen(str); i++) {
             if (str[i] + shift > 122) {
                 int a = 122 - str[i];
@@ -69,10 +85,10 @@ INVALID_SHIFT_VALUE:
                 enc_str[i] = (char)(str[i] + shift);
             }
         }
-        delay(1000);
-        printf("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ STRING ENCRYPTED SUCCESSFULLY ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+        delay(2000);
+        encrypt(str);
+        printf("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  DATA ENCRYPTED SUCCESSFULLY  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
     }
-    return 0;
 }
 
 int cipher_select() {
