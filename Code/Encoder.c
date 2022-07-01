@@ -1,7 +1,7 @@
 /*
 Project Name: Secure and Efiicient Data Transmission
 File Name: Encoder.c
-Last Updated: 18/06/2022
+Last Updated: 30/07/2022
 Last Updated by: Sarthak S Kumar
 */
 
@@ -14,6 +14,9 @@ Last Updated by: Sarthak S Kumar
 
 char enc_str[50], file_data[1000], filename[1];
 
+void huffman_encode(char enc_str[]) {
+}
+
 void delay(int millis) {
     clock_t start_time = clock();
     while (clock() < start_time + millis)
@@ -23,7 +26,7 @@ void delay(int millis) {
 void encrypt(char str[]) {
     strcat(filename, EXTENSION);
     FILE *file = fopen(filename, "w");
-    fprintf(file, "%s", enc_str);
+    fprintf(file, "10111011000110011110000001100101110100101000111000110101100110001\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n%s", str);
 }
 
 void f_handle() {
@@ -36,7 +39,6 @@ void f_handle() {
         f_handle();
     }
     fgets(file_data, 1000, file);
-    printf("%s", file_data);
     fclose(file);
 }
 int ceasar_cipher_enc(int flag) {
@@ -86,7 +88,9 @@ INVALID_SHIFT_VALUE:
             }
         }
         delay(2000);
-        encrypt(str);
+        printf("\n--------------------------------     ENCODING USING HUFFMAN    -----------------------------------\n");
+        huffman_encode(str);
+        encrypt(file_data);
         printf("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  DATA ENCRYPTED SUCCESSFULLY  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
     }
 }
@@ -100,7 +104,6 @@ int cipher_select() {
     printf("--------------------------------------------------------------------------------------------------\n");
     printf("                                           YOUR CHOICE: ");
     scanf("%c", &choice);
-    printf("%c", choice);
     if (choice == '0') {
         exit(0);
     }
